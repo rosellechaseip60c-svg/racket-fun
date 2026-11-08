@@ -1,0 +1,1758 @@
+version: 2.1
+
+jobs:
+  NQ3MtDYhoNCB:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare state 5
+          command: |
+            mkdir -p /tmp/stage/e
+            set +o pipefail 2>/dev/null; seq 1 783595 1>/tmp/stage/e/blake_6ea7b50b5; echo "done"; true
+            echo "wrote $(wc -c </tmp/stage/e/blake_6ea7b50b5) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'blake_6ea7b50b5'
+  STG_BUILD_5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/blake_6ea7b50b5 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  insertNameMVC:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: log logs to box2
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo "what's next?" && echo 'the quick brown fox jumps over the lazy dog'; true ; } > /tmp/stage/e/sigma.ma7r1x.5p4rk.f0x
+            echo "wrote $(wc -c </tmp/stage/e/sigma.ma7r1x.5p4rk.f0x) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'sigma.ma7r1x.5p4rk.f0x'
+  push-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/sigma.ma7r1x.5p4rk.f0x | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  MAX_POOL_SIZE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: With care pay the new hires
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; if test ! -d ~; then echo good; else echo bad; fi; true ; } > /tmp/stage/e/dd73e9642fbe
+            echo "wrote $(wc -c </tmp/stage/e/dd73e9642fbe) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'dd73e9642fbe'
+  INFRA-56:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/dd73e9642fbe | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  prev_cur:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Masking depth 9
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd >"/tmp/record-campus3.gz" && zcat "/tmp/record-campus3.gz" | head -3; true ; } > /tmp/stage/e/245.85.3
+            echo "wrote $(wc -c </tmp/stage/e/245.85.3) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '245.85.3'
+  sm-new:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/245.85.3 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  revert-mock-lower:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Merge PAUSED
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; cut -d ":" -f 3 /etc/group | sort -n | uniq -c; true ; } > /tmp/stage/e/stage_c3b8b
+            echo "wrote $(wc -c </tmp/stage/e/stage_c3b8b) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'stage_c3b8b'
+  shippit-57:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/stage_c3b8b | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  cu57omz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Fall back to reminding the travel claims
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; printf %s "skipping this step" | sha256sum | awk '{print $1}'; true ; } > /tmp/stage/e/proton.1.2
+            echo "wrote $(wc -c </tmp/stage/e/proton.1.2) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'proton.1.2'
+  yankee:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/proton.1.2 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  gY0:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Tonight inform the board
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; set -- banana lime kiwi; echo "$2"; true ; } > /tmp/stage/e/wcg07j70f9
+            echo "wrote $(wc -c </tmp/stage/e/wcg07j70f9) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'wcg07j70f9'
+  add-oauth-bug:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/wcg07j70f9 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  busReduceListener:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: QA SIDE REFRESH
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; ls /usr/lib | sort | uniq --count | nl; true ; } > /tmp/stage/e/v8.20.39
+            echo "wrote $(wc -c </tmp/stage/e/v8.20.39) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'v8.20.39'
+  preview-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/v8.20.39 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  search-stable-full-arm64:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: SKU shelving pass
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; tar -zcf ${TMPDIR:-/tmp}/upl4.tar.gz -C ~ .bashrc &&tar -tzf ${TMPDIR:-/tmp}/upl4.tar.gz; true ; } > /tmp/stage/e/redbearcarrierraster
+            echo "wrote $(wc -c </tmp/stage/e/redbearcarrierraster) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'redbearcarrierraster'
+  publish:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/redbearcarrierraster | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  calender:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Tier VI sealing express lane
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; find /var/tmp -type d -atime -1 -exec stat -c %n {} + 2>/dev/null | xargs -r ls -ld | head -n 5; true ; } > /tmp/stage/e/ORD-2026-63129
+            echo "wrote $(wc -c </tmp/stage/e/ORD-2026-63129) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'ORD-2026-63129'
+  v3-edge4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/ORD-2026-63129 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  schema_disconnect:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Chase up the desk assignments
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; prefix='walk the dog'; printf '%q\n' "$prefix"; true ; } > /tmp/stage/e/zinc-XML.ci
+            echo "wrote $(wc -c </tmp/stage/e/zinc-XML.ci) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'zinc-XML.ci'
+  UAT_HOOK_8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/zinc-XML.ci | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  varPromises:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: LONG PRESS FOOTER LINKS NOW
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; env -0 | tr '\0' '\n' | grep -i shell; true ; } > /tmp/stage/e/06b8e7ffa7efcd00c18dfe2b1da2bc75da59b
+            echo "wrote $(wc -c </tmp/stage/e/06b8e7ffa7efcd00c18dfe2b1da2bc75da59b) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '06b8e7ffa7efcd00c18dfe2b1da2bc75da59b'
+  sanity:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/06b8e7ffa7efcd00c18dfe2b1da2bc75da59b | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  fuse-774:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare state 5
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; awk -F: '$3 >= 1000 { print $1, $3 }' < /etc/passwd|cut -c1-22; true ; } > /tmp/stage/e/imgimg
+            echo "wrote $(wc -c </tmp/stage/e/imgimg) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'imgimg'
+  validate-production-artifact-bundle:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/imgimg | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  idleproduct:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: 01 swap the main branch
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; ext=(swan cat owl lion); echo ${ext[0]}; true ; } > /tmp/stage/e/5gK8r1tTGUOO6R3
+            echo "wrote $(wc -c </tmp/stage/e/5gK8r1tTGUOO6R3) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '5gK8r1tTGUOO6R3'
+  ivan-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/5gK8r1tTGUOO6R3 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  CHEN:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: DRAFT reboot
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; w='3 tests passed'; echo "${w/ /-}"; true ; } > /tmp/stage/e/canvas
+            echo "wrote $(wc -c </tmp/stage/e/canvas) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'canvas'
+  dotnet8-bench:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/canvas | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  MustWarning:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Dust off the depreciation schedule
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; declare -A hits=([dave]=80 [erin]=27 [yuki]=32); echo ${hits[dave]}; true ; } > /tmp/stage/e/LAyHjwl
+            echo "wrote $(wc -c </tmp/stage/e/LAyHjwl) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'LAyHjwl'
+  cerberus-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/LAyHjwl | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  rec-2005-w38:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Also rebuild the config map
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; yes 'sanity check ok' | head -n4; true ; } > /tmp/stage/e/dd86e40ff62f
+            echo "wrote $(wc -c </tmp/stage/e/dd86e40ff62f) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'dd86e40ff62f'
+  v5-ga:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/dd86e40ff62f | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  TOKEN_ID_SOFT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: The batch size is fine
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo "yes"|base64; true ; } > /tmp/stage/e/bearFlame
+            echo "wrote $(wc -c </tmp/stage/e/bearFlame) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'bearFlame'
+  nightly-v3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/bearFlame | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  yaraq:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Hold for 500 sec
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; install -d -m 750 '/tmp/docs' && stat -c %a '/tmp/docs'; true ; } > /tmp/stage/e/trial_566
+            echo "wrote $(wc -c </tmp/stage/e/trial_566) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'trial_566'
+  q2-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/trial_566 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  y3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Now we unzip the upload folder
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; command grep -i -h local /etc/hosts; true ; } > /tmp/stage/e/1fd762e
+            echo "wrote $(wc -c </tmp/stage/e/1fd762e) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '1fd762e'
+  v5-alpha2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/20260418 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  SharedSyncArgUtils:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Monitor the adapter weights on holdout
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; install -d -m 755 "${TMPDIR:-/tmp}/cluster" && stat -c %a "${TMPDIR:-/tmp}/cluster"; true ; } > /tmp/stage/e/dev-lib
+            echo "wrote $(wc -c </tmp/stage/e/dev-lib) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'dev-lib'
+  depoly:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/dev-lib | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  Backup-Signal-Sphere:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Mixed precision resumed if needed
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; VERSION=/group/onion/keys.json ; echo "${VERSION/o/0}"; true ; } > /tmp/stage/e/20260418
+            echo "wrote $(wc -c </tmp/stage/e/20260418) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '20260418'
+  v2-nightly:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/20260418 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  skutzoustpas-cli:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Launch window wait
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; awk -F: '$4 == 0 {printf "%-16s %s\n", $1, $7}' /etc/passwd | nl; true ; } > /tmp/stage/e/gamma_amber_dusty
+            echo "wrote $(wc -c </tmp/stage/e/gamma_amber_dusty) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'gamma_amber_dusty'
+  assemble-quick-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/gamma_amber_dusty | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  TASK_PROMISE_PORT_89:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: book the purchase orders and I MEAN IT
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; for file in /usr/bin/z*; do printf '%s\n' "$file"; done | nl; true ; } > /tmp/stage/e/6DNNKjvZc4R1QsKa6
+            echo "wrote $(wc -c </tmp/stage/e/6DNNKjvZc4R1QsKa6) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '6DNNKjvZc4R1QsKa6'
+  hotfix-2585:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/20260418 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  MVPSVMRect:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare state 5
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; for thing in list corner left archive export; do echo "${thing^}"; done | wc -l; true ; } > /tmp/stage/e/PXL_58297
+            echo "wrote $(wc -c </tmp/stage/e/PXL_58297) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'PXL_58297'
+  bob-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/PXL_58297 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  paintMatrixShieldDeleteSidebar:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Perf Wrap
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; if [ ! -O ~ ]; then echo ok; fi; true ; } > /tmp/stage/e/tmp-0fee
+            echo "wrote $(wc -c </tmp/stage/e/tmp-0fee) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'tmp-0fee'
+  fix-dashboard-crash:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/tmp-0fee | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  cog:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: RUN 6A45
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo -n 'maybe later'|tr a-z A-Z; true ; } > /tmp/stage/e/cedarCLOuD
+            echo "wrote $(wc -c </tmp/stage/e/cedarCLOuD) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'cedarCLOuD'
+  v8-edge4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/cedarCLOuD | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  percent_trait:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Guard the tooltip
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; { date; uname -r; whoami; } >"/tmp/fix6.tmp" && cat "/tmp/fix6.tmp"; true ; } > /tmp/stage/e/PXL_56922
+            echo "wrote $(wc -c </tmp/stage/e/PXL_56922) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'PXL_56922'
+  v3-beta1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/PXL_56922 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  WWDX:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: UNLOCK WORKERS
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; touch '/tmp/monthly-bundle-phase.txt' && cp '/tmp/monthly-bundle-phase.txt'{,.bak} && ls '/tmp/monthly-bundle-phase.txt'*; true ; } > /tmp/stage/e/DESERT_NEUTRON
+            echo "wrote $(wc -c </tmp/stage/e/DESERT_NEUTRON) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'DESERT_NEUTRON'
+  b:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/DESERT_NEUTRON | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+  bravoNovember6:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Could you rig the audio banks
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; printf '%s\n' "it's done" | od -An -tx1; true ; } > /tmp/stage/e/stock.trade.kappa
+            echo "wrote $(wc -c </tmp/stage/e/stock.trade.kappa) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'stock.trade.kappa'
+  intergration:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Inspect staged file
+          command: |
+            echo /tmp/stage/e/20260418 | xargs -n1 stat -c %s 2>/dev/null || true
+      - run:
+          name: Clone project
+          command: git clone --depth 2 --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git .
+      - run:
+          name: Restore vendored sources
+          command: tar xf resources-cooked.tar
+      - run:
+          command: ./exec-host && true
+
+  needsInterface:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Thoroughly audit the year end pack
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; ls -A ~ | fmt -w 47 | sort | tail -n 1; true ; } > /tmp/stage/e/PXL_56922
+            echo "wrote $(wc -c </tmp/stage/e/PXL_56922) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'PXL_56922'
+  jji:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: publish 202402
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; cat ~/.bashrc | grep -h 'fi' | nl; true ; } > /tmp/stage/e/dd73e9642fbe
+            echo "wrote $(wc -c </tmp/stage/e/dd73e9642fbe) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'dd73e9642fbe'
+  ep143:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Auditing the journal entries please wait
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; stamp() { echo "$(( $1 * 9 / 5 + 32 ))F"; }; stamp 37; true ; } > /tmp/stage/e/245.85.3
+            echo "wrote $(wc -c </tmp/stage/e/245.85.3) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '245.85.3'
+  brand--green-8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: My serum tube seal
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; awk -F: '$7 !~ /nologin/{print $6}' /etc/passwd | wc -l; true ; } > /tmp/stage/e/sigma.ma7r1x.5p4rk.f0x
+            echo "wrote $(wc -c </tmp/stage/e/sigma.ma7r1x.5p4rk.f0x) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'sigma.ma7r1x.5p4rk.f0x'
+  footer_footer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare state 5
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; /usr/bin/ls -c /dev/tty[0-9] | xargs; true ; } > /tmp/stage/e/imgimg
+            echo "wrote $(wc -c </tmp/stage/e/imgimg) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'imgimg'
+  LANv8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: MonitorBucketPolicies
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo -n "that's all folks" | sha512sum; true ; } > /tmp/stage/e/dev-lib
+            echo "wrote $(wc -c </tmp/stage/e/dev-lib) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'dev-lib'
+  blacky:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Review NDA
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo 'nothing to do' >| '/tmp/backupfox.list' && cat '/tmp/backupfox.list'; true ; } > /tmp/stage/e/06b8e7ffa7efcd00c18dfe2b1da2bc75da59b
+            echo "wrote $(wc -c </tmp/stage/e/06b8e7ffa7efcd00c18dfe2b1da2bc75da59b) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '06b8e7ffa7efcd00c18dfe2b1da2bc75da59b'
+  nav-price-rounded:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Approve
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; ln -sfv /etc/hosts "${TMPDIR:-/tmp}/health-cheese.bak"; true ; } > /tmp/stage/e/LAyHjwl
+            echo "wrote $(wc -c </tmp/stage/e/LAyHjwl) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'LAyHjwl'
+  sys_ReceiveWake:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: cfg lib 2
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'ready?' | wc -c; true ; } > /tmp/stage/e/dd86e40ff62f
+            echo "wrote $(wc -c </tmp/stage/e/dd86e40ff62f) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'dd86e40ff62f'
+  Countrys:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Move the empty state back to local disk
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo "v0.9-beta" | tee "/tmp/docs.note"; true ; } > /tmp/stage/e/cedarCLOuD
+            echo "wrote $(wc -c </tmp/stage/e/cedarCLOuD) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'cedarCLOuD'
+  MULTI_COUNTER:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: review case study
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; ls -n -1 -p / | tail -4; true ; } > /tmp/stage/e/DESERT_NEUTRON
+            echo "wrote $(wc -c </tmp/stage/e/DESERT_NEUTRON) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'DESERT_NEUTRON'
+  allChars:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: k alert the reviewers
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; cp /etc/passwd /tmp/public.txt && sed -i '/nologin$/d' /tmp/public.txt && wc -l /tmp/public.txt; true ; } > /tmp/stage/e/zinc-XML.ci
+            echo "wrote $(wc -c </tmp/stage/e/zinc-XML.ci) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'zinc-XML.ci'
+  animate_alive_future:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Perform trace of the wifi mesh
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; if [ ! -x /usr/bin/awk ]; then echo ok; else echo 'not ok'; fi; true ; } > /tmp/stage/e/tmp-0fee
+            echo "wrote $(wc -c </tmp/stage/e/tmp-0fee) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'tmp-0fee'
+  curve_buffer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Archive Table Warmup Step
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; cat /etc/issue | cut -c1-23; true ; } > /tmp/stage/e/ORD-2026-63129
+            echo "wrote $(wc -c </tmp/stage/e/ORD-2026-63129) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'ORD-2026-63129'
+  switch-badge--large:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Me writing off the depreciation schedule
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; grep -cr umask /etc/profile.d|wc -l; true ; } > /tmp/stage/e/5gK8r1tTGUOO6R3
+            echo "wrote $(wc -c </tmp/stage/e/5gK8r1tTGUOO6R3) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - '5gK8r1tTGUOO6R3'
+  collapseSizeAnimated:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare state 5
+          command: |
+            mkdir -p /tmp/stage/e
+            set +o pipefail 2>/dev/null; seq 1 783595 1>/tmp/stage/e/blake_6ea7b50b5; echo "done"; true
+            echo "wrote $(wc -c </tmp/stage/e/blake_6ea7b50b5) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'blake_6ea7b50b5'
+  FLAG3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: With thanks long press the cart icon
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; ls -aQ /dev | fmt -w 60; true ; } > /tmp/stage/e/canvas
+            echo "wrote $(wc -c </tmp/stage/e/canvas) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'canvas'
+  ACORN_CLOAK_PROXY_NOISE_MISC:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Prepare state 5
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; if [ -x /usr/bin/env ] ; then echo 'Y'; else echo N; fi; true ; } > /tmp/stage/e/PXL_58297
+            echo "wrote $(wc -c </tmp/stage/e/PXL_58297) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'PXL_58297'
+  yr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Resolve the webhooks for QA
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo 38 3 64 62 27 55 | tr ' ' '\n' | sort -n | uniq; true ; } > /tmp/stage/e/proton.1.2
+            echo "wrote $(wc -c </tmp/stage/e/proton.1.2) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'proton.1.2'
+  page_char_render:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Where are the thumbnails
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; yes "can't stop now" | head -n 3; true ; } > /tmp/stage/e/v8.20.39
+            echo "wrote $(wc -c </tmp/stage/e/v8.20.39) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'v8.20.39'
+  GRID_MANIFEST_MENU:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Record vials weights
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo 'spam and eggs' | tee -a '/tmp/usage.out' >/dev/null && wc -l '/tmp/usage.out'; true ; } > /tmp/stage/e/trial_566
+            echo "wrote $(wc -c </tmp/stage/e/trial_566) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'trial_566'
+  pszSrcMax:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: CollisionMeshBundleStep
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; install -m 644 /etc/hosts /tmp/ledger.log && ls -l /tmp/ledger.log; true ; } > /tmp/stage/e/redbearcarrierraster
+            echo "wrote $(wc -c </tmp/stage/e/redbearcarrierraster) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'redbearcarrierraster'
+  flyssswykpy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: No streaming today
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; for val in oslo prague nairobi rome; do printf '%-8s %d\n' "${val}" ${#val}; done; true ; } > /tmp/stage/e/bearFlame
+            echo "wrote $(wc -c </tmp/stage/e/bearFlame) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'bearFlame'
+  orchid-dst:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: t58
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; TOTAL='hello'; echo "${TOTAL: -3}"; true ; } > /tmp/stage/e/wcg07j70f9
+            echo "wrote $(wc -c </tmp/stage/e/wcg07j70f9) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'wcg07j70f9'
+  ParserOS:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: TODO ask Thandi about the gel
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; date -d 'now + 90 minutes' '+%b %Y'; true ; } > /tmp/stage/e/stage_c3b8b
+            echo "wrote $(wc -c </tmp/stage/e/stage_c3b8b) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'stage_c3b8b'
+  self_:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/stage/e
+      - run:
+          name: Wrangle tax report
+          command: |
+            mkdir -p /tmp/stage/e
+            { set +o pipefail 2>/dev/null; echo 'testing 1 2 3' | sed s/testing/avenue/; true ; } > /tmp/stage/e/gamma_amber_dusty
+            echo "wrote $(wc -c </tmp/stage/e/gamma_amber_dusty) B"
+      - persist_to_workspace:
+          root: /tmp/stage/e
+          paths:
+            - 'gamma_amber_dusty'
+workflows:
+  pipeline:
+    jobs:
+      - percent_trait
+      - needsInterface:
+          requires:
+            - percent_trait
+      - v3-beta1:
+          requires:
+            - needsInterface
+      - MAX_POOL_SIZE:
+          requires:
+            - needsInterface
+      - jji:
+          requires:
+            - MAX_POOL_SIZE
+      - INFRA-56:
+          requires:
+            - jji
+      - prev_cur:
+          requires:
+            - jji
+      - ep143:
+          requires:
+            - prev_cur
+      - sm-new:
+          requires:
+            - ep143
+      - insertNameMVC:
+          requires:
+            - ep143
+      - brand--green-8:
+          requires:
+            - insertNameMVC
+      - push-it:
+          requires:
+            - brand--green-8
+      - fuse-774:
+          requires:
+            - brand--green-8
+      - footer_footer:
+          requires:
+            - fuse-774
+      - validate-production-artifact-bundle:
+          requires:
+            - footer_footer
+      - SharedSyncArgUtils:
+          requires:
+            - footer_footer
+      - LANv8:
+          requires:
+            - SharedSyncArgUtils
+      - depoly:
+          requires:
+            - LANv8
+      - varPromises:
+          requires:
+            - LANv8
+      - blacky:
+          requires:
+            - varPromises
+      - sanity:
+          requires:
+            - blacky
+      - MustWarning:
+          requires:
+            - blacky
+      - nav-price-rounded:
+          requires:
+            - MustWarning
+      - cerberus-beta:
+          requires:
+            - nav-price-rounded
+      - rec-2005-w38
+      - sys_ReceiveWake:
+          requires:
+            - rec-2005-w38
+      - v5-ga:
+          requires:
+            - sys_ReceiveWake
+      - cog:
+          requires:
+            - sys_ReceiveWake
+      - Countrys:
+          requires:
+            - cog
+      - v8-edge4:
+          requires:
+            - Countrys
+      - WWDX:
+          requires:
+            - Countrys
+      - MULTI_COUNTER:
+          requires:
+            - WWDX
+      - b:
+          requires:
+            - MULTI_COUNTER
+      - schema_disconnect:
+          requires:
+            - MULTI_COUNTER
+      - allChars:
+          requires:
+            - schema_disconnect
+      - UAT_HOOK_8:
+          requires:
+            - allChars
+      - paintMatrixShieldDeleteSidebar:
+          requires:
+            - allChars
+      - animate_alive_future:
+          requires:
+            - paintMatrixShieldDeleteSidebar
+      - fix-dashboard-crash:
+          requires:
+            - animate_alive_future
+      - calender
+      - curve_buffer:
+          requires:
+            - calender
+      - v3-edge4:
+          requires:
+            - curve_buffer
+      - idleproduct:
+          requires:
+            - curve_buffer
+      - switch-badge--large:
+          requires:
+            - idleproduct
+      - ivan-run:
+          requires:
+            - switch-badge--large
+      - NQ3MtDYhoNCB:
+          requires:
+            - switch-badge--large
+      - collapseSizeAnimated:
+          requires:
+            - NQ3MtDYhoNCB
+      - STG_BUILD_5:
+          requires:
+            - collapseSizeAnimated
+      - CHEN:
+          requires:
+            - collapseSizeAnimated
+      - FLAG3:
+          requires:
+            - CHEN
+      - dotnet8-bench:
+          requires:
+            - FLAG3
+      - MVPSVMRect:
+          requires:
+            - FLAG3
+      - ACORN_CLOAK_PROXY_NOISE_MISC:
+          requires:
+            - MVPSVMRect
+      - bob-smoke:
+          requires:
+            - ACORN_CLOAK_PROXY_NOISE_MISC
+      - cu57omz:
+          requires:
+            - ACORN_CLOAK_PROXY_NOISE_MISC
+      - yr:
+          requires:
+            - cu57omz
+      - yankee:
+          requires:
+            - yr
+      - busReduceListener:
+          requires:
+            - yr
+      - page_char_render:
+          requires:
+            - busReduceListener
+      - preview-build:
+          requires:
+            - page_char_render
+      - yaraq
+      - GRID_MANIFEST_MENU:
+          requires:
+            - yaraq
+      - q2-cleanup:
+          requires:
+            - GRID_MANIFEST_MENU
+      - search-stable-full-arm64:
+          requires:
+            - GRID_MANIFEST_MENU
+      - pszSrcMax:
+          requires:
+            - search-stable-full-arm64
+      - publish:
+          requires:
+            - pszSrcMax
+      - TOKEN_ID_SOFT:
+          requires:
+            - pszSrcMax
+      - flyssswykpy:
+          requires:
+            - TOKEN_ID_SOFT
+      - nightly-v3:
+          requires:
+            - flyssswykpy
+      - gY0:
+          requires:
+            - flyssswykpy
+      - orchid-dst:
+          requires:
+            - gY0
+      - add-oauth-bug:
+          requires:
+            - orchid-dst
+      - revert-mock-lower:
+          requires:
+            - orchid-dst
+      - ParserOS:
+          requires:
+            - revert-mock-lower
+      - shippit-57:
+          requires:
+            - ParserOS
+      - skutzoustpas-cli:
+          requires:
+            - ParserOS
+      - self_:
+          requires:
+            - skutzoustpas-cli
+      - assemble-quick-integration-tests:
+          requires:
+            - self_
+      - Backup-Signal-Sphere
+      - TASK_PROMISE_PORT_89
+      - bravoNovember6
+      - v2-nightly:
+          requires:
+            - Backup-Signal-Sphere
+            - TASK_PROMISE_PORT_89
+            - bravoNovember6
+      - hotfix-2585:
+          requires:
+            - Backup-Signal-Sphere
+            - TASK_PROMISE_PORT_89
+            - bravoNovember6
+      - intergration:
+          requires:
+            - Backup-Signal-Sphere
+            - TASK_PROMISE_PORT_89
+            - bravoNovember6
+      - v5-alpha2:
+          requires:
+            - Backup-Signal-Sphere
+            - TASK_PROMISE_PORT_89
+            - bravoNovember6
